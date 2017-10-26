@@ -2,9 +2,8 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 
-class Title extends ReadOnlyBase
+class Title extends ReadOnlyBaseClass
 {
-    protected $title_array = ["Mr. ","Ms. ","Mrs. ","Sr. ","Mx. "];
+    protected $title = ["Mr","Ms","Mx","Dr","Sr"];
 }
