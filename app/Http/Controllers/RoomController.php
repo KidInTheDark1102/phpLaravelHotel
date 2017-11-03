@@ -8,18 +8,25 @@ use App\Client as Client;
 
 class RoomController extends Controller
 {
-    function __construct(Room $room,Client $client){
+    function __construct(Room $room, Client $client){
         $this->room = $room;
         $this->client = $client;
-    }
+   }
 
-    public function checkAvailableRooms($client_id, Request $request){
-        $start_date  = $request->input('start_date');
-        $end_date = $request->input('end_date');
-
+   public function checkAvailableRooms($client_id, Request $request){
+        $start_date = $request->input('dateFrom');
+        $end_date = $request->input('dateTo');
+            
+        $foundClient = $this->client->find($client_id);
         $data = [];
-        $data['$rooms'] = $rooms->getAvailableRoom(start_date,end_date);
-        
-        return view('rooms/checkAvailableRooms',$data);
-    }
+        $data['start_date'] = $start_date;
+        $data['end_date'] = $end_date;
+        $data['client'] = $foundClient;
+        $data['rooms'] = $this->room->getAvailableRooms($start_date,$end_date);
+
+        if($request->isMethod('post')){
+            // dd($data['rooms']);
+        }
+        return view('rooms/checkAvailableRooms', $data);
+   }
 }

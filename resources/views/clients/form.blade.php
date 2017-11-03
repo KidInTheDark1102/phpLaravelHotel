@@ -10,7 +10,7 @@
                 <label>Title</label>
                 <select name="title">
                 @foreach($titles as $t)
-                            <option value="{{$t}}">{{$t}}. </option>
+                    <option value="{{$t}}">{{$t}}. </option>
                 @endforeach
                 </select>
             </div>

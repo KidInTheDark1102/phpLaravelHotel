@@ -23,7 +23,7 @@ class CreateReservationsTable extends Migration
 
             $table->integer('room_id')->unsigned();
             $table->foreign('room_id')->references('id')->on('rooms');
-
+        
             $table->timestamps();
         });
     }

@@ -8,8 +8,6 @@
         <h4>Clients</h4>
         <div class="medium-2  columns"><a class="button hollow success" href="{{ route('new_client') }}">ADD NEW CLIENT</a></div>
 
-        
-        
         <table class="stack">
           <thead>
             <tr>
@@ -22,17 +20,15 @@
               @foreach ($clients as $client)
               <tr>
                 <td>{{$client -> title}}. {{$client -> first_name}} {{$client -> last_name}}</td>
-                <td>{{$client-> email}}</td>
+                <td>{{$client -> email}}</td>
                 <td>
-                  <a class="hollow button" href="{{route ('show_client', ['client_id'=> $client->id])}}">EDIT</a>
+                  <a class="hollow button" href="{{route('show_client', ['client_id'=> $client->id])}}">EDIT</a>
                   <a class="hollow button warning" href="{{route( 'check_room',['client_id'=> $client->id])}}">BOOK A ROOM</a>
                 </td>
               </tr>
               @endforeach
           </tbody>
         </table>
-
-        
       </div>
     </div>
 @endsection

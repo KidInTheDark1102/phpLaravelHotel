@@ -46,7 +46,7 @@ Route::post('/clients/new','ClientController@newClient')-> name('create_client')
 Route::get('/clients/{client_id}','ClientController@show')-> name('show_client');
 Route::post('/clients/{client_id}','ClientController@modify')-> name('update_client');
 
-Route::get('/reservations/{client_id}','RoomController@checkAvailableRooms') -> name('check_room');
-Route::post('/reservations/{client_id','RoomController@checkAvailableRooms')->name('check_room');
+Route::get('/reservations/{client_id}','RoomController@checkAvailableRooms')->name('check_room');
+Route::post('/reservations/{client_id}','RoomController@checkAvailableRooms')->name('check_room');
 
 Route::get('book/room/{client_id}/{room_id}/{date_in}/{date_out}','ReservationController@bookRoom') -> name('book_room');
